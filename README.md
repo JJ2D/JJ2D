@@ -1,1 +1,1 @@
-$[https://cdn.discordapp.com/attachments/1040810740522688513/1370907672563679252/pixil-frame-0.png?ex=682134c3&is=681fe343&hm=e9a2277c5feb689db68218894331ef5c86e1ce43ea14ce929d0f67a88c33436b&]
+![image](https://github.com/user-attachments/assets/1319a4f3-c9ba-4a12-b811-76707a9fa901)
