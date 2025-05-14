@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+}
+
+#gamescreen {
+    position: fixed;
+    left: 50%;
+    max-width: calc(100vh * 1.5);
+    width: 100vw;
+    height: 100vh;
+    outline: 0.3vw solid white;
+    background-color: rgb(171, 188, 197);
+    transform: translate(-50%);
+}
+#gamescreen #map {
+    position: fixed;
+    height: 100vh;
+}
+#gamescreen #map * {
+    position: absolute;
+    background-repeat: no-repeat;
+}
