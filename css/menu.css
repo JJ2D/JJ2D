@@ -9,7 +9,7 @@
 body {
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
     background-color: rgb(19, 16, 22);
     overflow: hidden;
 }
@@ -24,22 +24,19 @@ p, h1, h2, h3, h4, h5, h6 {
   font-style: normal;
 }
 .screen {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    bottom: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
 }
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-        transform-origin: center;
-    }
-    to {
-        transform: rotate(360deg);
-        transform-origin: center;
-    }
+#main-screen{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -79,6 +76,16 @@ p, h1, h2, h3, h4, h5, h6 {
     width: 20vw;
     margin: 2vw;
     animation: error-message-img 10s ease-in-out infinite forwards;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+        transform-origin: center;
+    }
+    to {
+        transform: rotate(360deg);
+        transform-origin: center;
+    }
 }
 @keyframes error-message-img {
     0% {
@@ -198,7 +205,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 #menuscreen .controls-splitscreen-button {
     position: fixed;
-    top: 0;
+    bottom: 0;
     width: 50vw;
     height: 100vh;
 }
