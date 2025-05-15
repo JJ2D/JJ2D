@@ -112,9 +112,9 @@ if (device == "Desktop") {
 } else {
 
     window.addEventListener("load", event => {
-        setTimeout(() => {
+        setInterval(() => {
             window.scrollTo(0,1);
-        }, 0);
+        }, 100);
     })
 
     let partSelected = -1;
