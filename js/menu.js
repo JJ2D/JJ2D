@@ -1,3 +1,4 @@
+// LOADING SCREEN
 const userAgent = navigator.userAgent;
 var device;
 var aspectRatio;
@@ -18,7 +19,7 @@ loading.errorMessage = document.getElementById("error-message");
 
 function orientationCheck() {
     setTimeout(() => {
-        
+
         // Detect orientation
         aspectRatio = window.innerWidth / window.innerHeight;
         if (aspectRatio >= 1) {
@@ -66,3 +67,96 @@ setTimeout(() => {
     orientationCheck()
     window.addEventListener("orientationchange", orientationCheck);
 }, 1000);
+
+
+
+
+
+
+
+
+
+
+// MENU
+var altmenu = false;
+const menuscreen = document.getElementById("menuscreen");
+const partList = {};
+partList.grid = document.getElementById("part-list");
+partList.switchButton = document.getElementById("switch-button");
+partList.parts = document.querySelectorAll(".part");
+
+partList.parts.forEach(element => {
+    element.innerHTML = `
+        <img src="assets/menu/${element.id}.png">
+    `;
+    if (device == "Desktop") {
+        element.addEventListener("mouseenter", event => {
+            new Audio("assets/audio/ping.mp3").play();
+        })
+    }
+});
+
+if (device == "Desktop") {
+
+    partList.switchButton.addEventListener("click", event => {
+        altmenu = !altmenu
+        if (altmenu) {
+            partList.grid.style.transform = "translateX(-100vw)";
+            partList.switchButton.classList.add("altmenu-mode");
+        } else {
+            partList.grid.style.transform = "";
+            partList.switchButton.classList.remove("altmenu-mode");
+        }
+    })
+
+} else {
+
+    menubar.visible = false;
+
+    let partSelected = -1;
+    let controls = {};
+    controls.left = document.createElement("div");
+    controls.left.classList.add("controls-splitscreen-button");
+    controls.left.style.left = "0";
+    controls.right = document.createElement("div");
+    controls.right.classList.add("controls-splitscreen-button");
+    controls.right.style.left = "50vw";
+
+    function reloadSelectionRender() {
+        partList.parts.forEach(element => {
+            element.classList.remove("part-selected");
+        })
+        partList.parts[partSelected].classList.add("part-selected");
+        
+        if (altmenu) {
+            partList.grid.style.transform = "translateX(-100vw)";
+            partList.switchButton.classList.add("altmenu-mode");
+        } else {
+            partList.grid.style.transform = "";
+            partList.switchButton.classList.remove("altmenu-mode");
+        }
+        new Audio("assets/audio/ping.mp3").play();
+    }
+
+    controls.left.addEventListener("click", event => {
+        if (partSelected > 0) {
+            partSelected--
+            if (partSelected < 3) {
+                altmenu = false;
+            }
+        }
+        reloadSelectionRender();
+    })
+    controls.right.addEventListener("click", event => {
+        if (partSelected < 5) {
+            partSelected++
+            if (partSelected > 2) {
+                altmenu = true;
+            }
+        }
+        reloadSelectionRender();
+    })
+
+    menuscreen.appendChild(controls.left);
+    menuscreen.appendChild(controls.right);
+}
