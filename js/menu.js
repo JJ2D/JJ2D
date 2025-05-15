@@ -1,3 +1,17 @@
+// PAUSESCREEN
+const pauseScreen = document.getElementById("pause-screen");
+window.addEventListener("scroll", event => {
+    if (window.scrollY != window.innerHeight) {
+        pauseScreen.style.display = "flex";
+    } else {
+        pauseScreen.style.display = "none";
+    }
+})
+
+
+
+
+
 // LOADING SCREEN
 const userAgent = navigator.userAgent;
 var device;
@@ -79,25 +93,23 @@ setTimeout(() => {
 
 // MENU
 var altmenu = false;
-const menuscreen = document.getElementById("menuscreen");
+const menuScreen = document.getElementById("menu-screen");
 const partList = {};
 partList.grid = document.getElementById("part-list");
 partList.switchButton = document.getElementById("switch-button");
 partList.parts = document.querySelectorAll(".part");
 
-partList.parts.forEach(element => {
-    element.innerHTML = `
-        <img src="assets/menu/${element.id}.png">
-    `;
-    if (device == "Desktop") {
-        element.addEventListener("mouseenter", event => {
-            new Audio("assets/audio/ping.mp3").play();
-        })
-    }
-});
 
 if (device == "Desktop") {
-
+    
+    // DESKTOP CODE
+    partList.parts.forEach(element => {
+        if (device == "Desktop") {
+            element.addEventListener("mouseenter", event => {
+                new Audio("assets/audio/ping.mp3").play();
+            })
+        }
+    });
     partList.switchButton.addEventListener("click", event => {
         altmenu = !altmenu
         if (altmenu) {
@@ -110,6 +122,9 @@ if (device == "Desktop") {
     })
 
 } else {
+
+    // MOBILE AND TABLET CODE
+    pauseScreen.children[1].innerHTML = "Swipe down to resume game";
 
     let partSelected = -1;
     let controls = {};
@@ -155,6 +170,6 @@ if (device == "Desktop") {
         reloadSelectionRender();
     })
 
-    menuscreen.appendChild(controls.left);
-    menuscreen.appendChild(controls.right);
+    menuScreen.appendChild(controls.left);
+    menuScreen.appendChild(controls.right);
 }

@@ -140,17 +140,17 @@ p, h1, h2, h3, h4, h5, h6 {
 
 
 /* - - - - - MENU - - - - - */
-#menuscreen {
+#menu-screen {
     display: flex;
     align-items: center;
     margin: 0 5vw;
 }
-#menuscreen #part-list {
+#menu-screen #part-list {
     display: grid;
     grid-template-columns: 30vw 30vw 30vw 10vw 30vw 30vw 30vw;
     transition: transform 1.5s;
 }
-#menuscreen #part-list .part {
+#menu-screen #part-list .part {
     transition: 0.3s ease-out;
     display: flex;
     justify-content: center;
@@ -159,22 +159,22 @@ p, h1, h2, h3, h4, h5, h6 {
     border: 0.25vw solid white;
     margin: 1vw;
 }
-#menuscreen #part-list .part img {
+#menu-screen #part-list .part img {
     width: 27vw;
     max-height: 75vh;
     object-fit: cover;
     filter: saturate(0);
 }
-#menuscreen #part-list .part:hover,
-#menuscreen #part-list .part.part-selected {
+#menu-screen #part-list .part:hover,
+#menu-screen #part-list .part.part-selected {
     animation: selection 5s ease-in-out infinite;
 }
-#menuscreen #part-list .part:hover img,
-#menuscreen #part-list .part.part-selected img {
+#menu-screen #part-list .part:hover img,
+#menu-screen #part-list .part.part-selected img {
     transition: 0.6s;
     filter: saturate(1);
 }
-#menuscreen #part-list #switch-button {
+#menu-screen #part-list #switch-button {
     display: flex;
     align-items: center;
     width: 100%;
@@ -182,14 +182,14 @@ p, h1, h2, h3, h4, h5, h6 {
     background-color: rgb(51, 51, 51);
     opacity: 0;
 }
-#menuscreen #part-list #switch-button img {
+#menu-screen #part-list #switch-button img {
     width: 4vw;
 }
-#menuscreen #part-list #switch-button:hover {
+#menu-screen #part-list #switch-button:hover {
     transition: 1s 0.5s;
     opacity: 0.5;
 }
-#menuscreen #part-list #switch-button.altmenu-mode img {
+#menu-screen #part-list #switch-button.altmenu-mode img {
     margin-left: auto;
     transform: scaleX(-1);
 }
@@ -207,9 +207,33 @@ p, h1, h2, h3, h4, h5, h6 {
     }
 }
 
-#menuscreen .controls-splitscreen-button {
+#menu-screen .controls-splitscreen-button {
     position: fixed;
     bottom: 0;
     width: 50vw;
     height: 100vh;
+}
+
+
+
+
+
+/* - - - - - PAUSE - - - - - */
+#pause-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    opacity: 0.7;
+    z-index: 500;
+    display: none;
+}
+#pause-screen h2, #pause-screen p {
+    text-align: center;
+    color: white;
+    font-size: 5vw;
+}
+#pause-screen p {
+    margin-top: 2vw;
+    font-size: 2vw;
 }
