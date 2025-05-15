@@ -1,7 +1,7 @@
 // PAUSESCREEN
 const pauseScreen = document.getElementById("pause-screen");
 window.addEventListener("scroll", event => {
-    if (window.scrollY > window.innerHeight - 15) {
+    if (window.scrollY > window.outerHeight/2) {
         pauseScreen.style.display = "none";
     } else {
         pauseScreen.style.display = "flex";
