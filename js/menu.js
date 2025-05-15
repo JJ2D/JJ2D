@@ -110,11 +110,6 @@ if (device == "Desktop") {
     })
 
 } else {
-    
-    setInterval(() => {
-        window.scrollTo(0,window.innerHeight)
-        console.log(window.scrollY);
-    }, 1000);
 
     let partSelected = -1;
     let controls = {};

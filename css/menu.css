@@ -11,7 +11,8 @@ body {
     width: 100vw;
     height: 200vh;
     background-color: rgb(19, 16, 22);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 .timesnew {
   font-family: "Jacquard 12", system-ui;
@@ -25,7 +26,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 .screen {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -37,6 +38,9 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     overflow-x: hidden;
     overflow-y: auto;
+}
+*::-webkit-scrollbar {
+    width: 0;
 }
 
 
