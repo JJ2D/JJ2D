@@ -1,10 +1,10 @@
 // PAUSESCREEN
 const pauseScreen = document.getElementById("pause-screen");
 window.addEventListener("scroll", event => {
-    if (window.scrollY != window.innerHeight) {
-        pauseScreen.style.display = "flex";
-    } else {
+    if (window.scrollY > (window.innerHeight/4) * 3) {
         pauseScreen.style.display = "none";
+    } else {
+        pauseScreen.style.display = "flex";
     }
 })
 
@@ -124,7 +124,7 @@ if (device == "Desktop") {
 } else {
 
     // MOBILE AND TABLET CODE
-    pauseScreen.children[1].innerHTML = "Swipe down to resume game";
+    pauseScreen.children[1].innerHTML = "Swipe up to resume game";
 
     let partSelected = -1;
     let controls = {};
