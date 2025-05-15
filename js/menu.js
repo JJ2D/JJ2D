@@ -111,7 +111,11 @@ if (device == "Desktop") {
 
 } else {
 
-    menubar.visible = false;
+    window.addEventListener("load", event => {
+        setTimeout(() => {
+            window.scrollTo(0,1);
+        }, 0);
+    })
 
     let partSelected = -1;
     let controls = {};
